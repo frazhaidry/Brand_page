@@ -29,8 +29,8 @@ const App = () => {
       setData(json);
       setLoading(false);
 
-       
-   
+
+
      }catch(error){
       setError("Unable to fetch data");
      }
