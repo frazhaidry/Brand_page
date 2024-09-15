@@ -5,11 +5,11 @@ import ReactMarkdown from "react-markdown";
 
 
 function App() {
-  // const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [question, setQuestion] = useState(" ");
   const [answer , setAnswer] = useState(" ");
   const [generatingAnswer, setGeneratingAnswer] = useState(false);
-  
+
 
   async function generateAnswer(e){
     setGeneratingAnswer(true);
@@ -18,7 +18,7 @@ function App() {
     
       try {
         const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAFwqun36w5h_y5WU-pWnJErvKZcqO5QrM`,
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`,
         method: "post",
         data:{"contents":[{"parts":[{"text":question}]}]}
       })
